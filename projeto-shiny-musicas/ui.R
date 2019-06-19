@@ -43,6 +43,25 @@ ui <- dashboardPage(
                     DT::dataTableOutput("mytable")
                     
             ),
+            
+            tabItem(tabName = "grafico",
+                    h4(align="center", "GRAFICOS"),
+                    navbarPage(title = "Graficos Spotify",
+                               tabPanel('Popularidade das musicas acima de 80', 
+                                        fluidRow(
+                                          column(10, 
+                                                 box(width = 30,
+                                                     h4(align="center", "Histograma de s"),
+                                                     plotOutput("hist_song_popularity")
+                                                 )
+                                          )
+                                        )
+                               )
+                               
+                    )
+            ),
+            
+            
             tabItem(tabName = "analise_grafica",
                     mainPanel(
                         plotOutput('table_')

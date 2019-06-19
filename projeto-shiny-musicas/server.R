@@ -17,6 +17,29 @@ library(xts)
 
 
 server <- function(input, output,session) {
+  
+  output$hist_song_popularity <- renderPlot({
+    
+    base_filtrada_popularity %>%
+      ggplot(aes(x=song_popularity)) + 
+      geom_histogram(color="black", fill="pink")
+    
+    histograma <-base_filtrada_popularity %>%
+      drop_na(song_popularity) %>%
+      ggplot(aes(x=song_popularity)) + 
+      geom_histogram(color="black",
+                     fill="white",stat = "bin",
+                     bins = 30) +
+      ylab("Frequencia") +
+      xlab("Popularidade") +
+      geom_vline(aes(xintercept=mean(song_popularity)),
+                 color="blue", linetype="dashed", size=1) + 
+      geom_vline(aes(xintercept=median(song_popularity)),
+                 color="red", linetype="dashed", size=1)
+    
+    histograma
+  })
+  
     
     
     

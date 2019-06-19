@@ -35,4 +35,9 @@ song_mediana_musicas <- base_filtrada %>%
   group_by(song_name) %>%
   summarise(MEDIANA = median(song_popularity))
 
-View(base_filtrada)
+
+
+base_filtrada_popularity <- base_filtrada %>%
+  filter(song_popularity > 80)
+
+
