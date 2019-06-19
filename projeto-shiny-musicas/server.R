@@ -89,10 +89,11 @@ server <- function(input, output,session) {
     })
     
     output$media_song_duration = DT::renderDataTable({
-        song_media_song_duration}) 
+      song_media_song_duration}) 
     output$media_danceabilidade = DT::renderDataTable({
-        song_media_danceability}) 
+      song_media_danceability}) 
     output$moda_musicas = DT::renderDataTable(song_moda_musica )
+    output$mediana = DT::renderDataTable(song_mediana_musicas)
     
 }
 

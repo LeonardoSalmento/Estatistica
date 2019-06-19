@@ -30,6 +30,10 @@ ui <- dashboardPage(
             menuItem("Tabela", tabName = "Database",icon = icon("th")),
             menuItem("Histograma", tabName = "grafico", icon = icon("dashboard")),
             menuItem("Media de popularidade das musicas", tabName = "De", icon = icon("th")),
+            menuItem("Media Duracao das musicas", tabName = "mediadu", icon = icon("th")),
+            menuItem("Media Danceabilidade", tabName = "dance", icon = icon("th")),
+            menuItem("Mediana", tabName = "mediana", icon = icon("th")),
+            menuItem("Moda", tabName = "moda", icon = icon("th")),
             menuItem("Sobre", tabName = "sb", icon = icon("th"))
             
             
@@ -47,7 +51,7 @@ ui <- dashboardPage(
             tabItem(tabName = "grafico",
                     h4(align="center", "GRAFICOS"),
                     navbarPage(title = "Graficos Spotify",
-                               tabPanel('Popularidade das musicas acima de 80', 
+                               tabPanel('Musica com popularidade acima de 80', 
                                         fluidRow(
                                           column(10, 
                                                  box(width = 30,
@@ -86,14 +90,23 @@ ui <- dashboardPage(
             ),
             
             tabItem(tabName = "De",
-                    h2(align="center","Dados Estatisticos"),
-                    dataTableOutput("media_popularidade_musicas"),
-                   dataTableOutput("media_song_duration"),
-                   dataTableOutput("media_danceabilidade "),
-                   dataTableOutput("moda_musicas")
-                   
-                    
-            ),
+                    h2(align="center","Media popularidade das musicas"),
+                    dataTableOutput("media_popularidade_musicas")),
+            
+            
+            
+            tabItem(tabName = "mediadu",
+                    h2(align="center","Media duracao das musicas"),
+                    dataTableOutput("media_song_duration")),
+            tabItem(tabName = "dance",
+                    h2(align="center","Media danceabilidade das musicas"),
+                    dataTableOutput("media_danceabilidade")),
+            tabItem(tabName = "mediana",
+                    h2(align="center","Mediana popularidade das musicas"),
+                    dataTableOutput("mediana")),
+            tabItem(tabName = "moda",
+                    h2(align="center","Moda popularidade das musicas"),
+                    dataTableOutput("moda_musicas")),
 
             
             
